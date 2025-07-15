@@ -16,10 +16,10 @@ public class StudentView {
         this.controller = controller;
     }
 
-    public  void showMenu() {
+    public void showMenu() {
         while (true) {
             try {
-                System.out.println("== 학생 관리 시스템 ==");
+                System.out.println("=== 학생 관리 시스템 ===");
                 System.out.println("1. 학생 추가");
                 System.out.println("2. 학생 조회 (전체)");
                 System.out.println("3. 학생 조회 (단건)");
@@ -31,22 +31,25 @@ public class StudentView {
                 int choice = Integer.parseInt(sc.nextLine());
 
                 switch (choice) {
+                    // switch-case 화살표 문법 (Java 14 버전 이후 사용 가능)
+                    // : 기존의 case + break 문법을 대체하여 각 case만 실행하는 문법
                     case 1 -> addStudentView();
                     case 2 -> showAllStudentsView();
                     case 3 -> showStudentByStudentNumber();
                     case 4 -> updateStudentView();
                     case 5 -> deleteStudentView();
                     case 6 -> {
+                        // switch-case문의 화살표 문법에서 여러 줄의 코드 작성 시 {} 중괄호로 범위를 감싸야 한다!
                         System.out.println("프로그램을 종료합니다.");
-                        return;
+                        return; // 해당 메서드(showMenu) 종료
                     }
-                    default -> System.out.println("잘못된 입력입니다. 다시 입력해주세요");
+                    default -> System.out.println("⚠️잘못된 입력입니다. 다시 입력해주세요.");
                 }
 
             } catch(NumberFormatException e) {
-                System.out.println("숫자를 입력해야 합니다.");
+                System.out.println("⚠️숫자를 입력해야 합니다.");
             } catch (Exception e) {
-                System.out.println("오류가 발생하였습니다: " + e.getMessage());
+                System.out.println("⚠️오류가 발생하였습니다: " + e.getMessage());
             }
 
         }
@@ -61,7 +64,8 @@ public class StudentView {
         String studentNumber = sc.nextLine();
 
         StudentRequestDto dto = new StudentRequestDto(name, age, studentNumber);
-        controller.addStudent(dto); // 요청값을 하나의 객체로 감싸서 전달 (DTO: 데이터 전달을 위한 객체)
+        controller.addStudent(dto);
+        // 요청값을 하나의 객체로 감싸서 전달 (DTO: 데이터 전달을 위한 객체)
     }
 
     private void showAllStudentsView() {
@@ -78,11 +82,11 @@ public class StudentView {
     }
 
     private void showStudentByStudentNumber() {
-        System.out.print("조회할 학생의 학번을 입력해주세요.");
+        System.out.print("조회할 학생의 학번을 입력해주세요: ");
         String studentNumber = sc.nextLine();
 
         StudentResponseDto dto = controller.getStudentById(studentNumber);
-        // 모든 클래스 타입은 Object 클래스 타입을 상속받음
+        // 모든 클래스 타입은 Object 클래스 타입을 상속 받음
         // >> Object(참조) 타입은 기본값으로 null을 가짐
 
         if (dto == null) {
@@ -106,7 +110,7 @@ public class StudentView {
 
         boolean result = controller.updateStudent(dto);
 
-        System.out.println(result ? "수정 완료" : "해당 학번의 학생을 찾을 수 없습니다: " + studentNumber);
+        System.out.println(result ? "수정 완료!" : "해당 학번의 학생을 찾을 수 없습니다: " + studentNumber);
     }
 
     private void deleteStudentView() {
@@ -115,6 +119,6 @@ public class StudentView {
 
         boolean result = controller.removeStudent(studentNumber);
 
-        System.out.println(result ? "삭제 완료" : "해당 학번의 학생을 찾을 수 없습니다: " + studentNumber);
+        System.out.println(result ? "삭제 완료!" : "해당 학번의 학생을 찾을 수 없습니다: " + studentNumber);
     }
 }

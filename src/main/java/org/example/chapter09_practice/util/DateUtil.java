@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /*
- * 날짜 및 시간을 포맷팅하거나 파싱하는 유틸리티 클래스
- * */
+* 날짜 및 시간을 포맷팅하거나 파싱하는 유틸리티 클래스
+* */
 
 /**
  * == 문서 주석 ==
@@ -26,9 +26,9 @@ public class DateUtil {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(PATTERN);
 
     /*
-     * 현재 시간을 포맷된 문자열로 반환
-     * @return 현재 시간 (예: "2025-07-10 12:31:30")
-     * */
+    * 현재 시간을 포맷된 문자열로 반환
+    * @return 현재 시간 (예: "2025-07-10 12:31:30")
+    * */
     public static String now() {
         // 날짜시간데이터.format(포맷터);
         return LocalDateTime.now().format(FORMATTER);

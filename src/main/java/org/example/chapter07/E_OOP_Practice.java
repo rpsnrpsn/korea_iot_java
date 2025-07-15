@@ -32,7 +32,7 @@ class Book {
     // 책 반납 메서드
     void returnBook() {
         if (!isAvailable) {
-            // isAvailable이 false인 상태 - 대여중인 상태
+            // isAvailable이 false인 상태 - 대여 중인 상태
             isAvailable = true;
             System.out.println("책 반납이 성공적으로 완료되었습니다.");
         } else {
@@ -42,14 +42,14 @@ class Book {
 
     // 책 정보 출력 메서드
     void displayInfo() {
-        System.out.println("제목: " + title + "저자: " + author + ", 대여가능 여부: " +
-                (isAvailable ? "대여 가능" : "대여 중"));
+        System.out.println("제목: " + title + ", 저자: " + author + ", 대여가능 여부: " +
+                        (isAvailable ? "대여 가능" : "대여 중"));
     }
 
-    //캡슐화를 위한 getter 메서드 추가
+    // 캡슐화를 위한 getter 메서드 추가
     public String getTitle() { return title; }
     public String getAuthor() { return author; }
-    public boolean isAvailable() { return  isAvailable; }
+    public boolean isAvailable() { return isAvailable; }
     // boolean 데이터는 getter 사용 시 get 키워드 작성을 권장하지 않음
 }
 
@@ -57,13 +57,12 @@ class Book {
 // 추가 속성) fileSize(double)
 // 추가 메서드) displayInfo() - 재정의, fileSize()
 // 생성자) EBook(title, author, fileSize)
-
 class EBook extends Book {
     /*
-    EBook () {
-        super();
-        }
-    */
+    * EBook() {
+    *   super();
+    * }
+    * */
     private double fileSize;
 
     EBook(String title, String author, double fileSize) {
@@ -85,7 +84,7 @@ class EBook extends Book {
 public class E_OOP_Practice {
     public static void main(String[] args) {
         // Book 객체 생성
-        Book book1 = new Book("자바는 재밌어", "박현우");
+        Book book1 = new Book("자바는 재밌어", "이승아");
         book1.displayInfo(); // 제목: 자바는 재밌어, 저자: 이승아, 대여가능 여부: 대여 가능
         book1.borrowBook(); // 책 대여가 성공적으로 완료되었습니다.
         book1.displayInfo(); // 제목: 자바는 재밌어, 저자: 이승아, 대여가능 여부: 대여 중
@@ -95,7 +94,7 @@ public class E_OOP_Practice {
         book1.returnBook(); // 이미 반납된 상태입니다. (반납 불가)
 
         // EBook 객체 생성
-        EBook eBook1 = new EBook("스프링부트는 더 재밌어", "ㅂㅎㅇ", 131.23);
+        EBook eBook1 = new EBook("스프링부트는 더 재밌어", "이도경", 131.23);
 
         eBook1.displayInfo();
         // 제목: 스프링부트는 더 재밌어, 저자: 이도경, 대여가능 여부: 대여 가능

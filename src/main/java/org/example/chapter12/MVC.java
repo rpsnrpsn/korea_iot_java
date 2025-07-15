@@ -1,7 +1,7 @@
 package org.example.chapter12;
 
 /*
-* == MVC 패턴 ==
+* === MVC 패턴 ===
 * : Model(모델), View(뷰), Controller(컨트롤러)
 * - 사용자가 인터페이스를 설계하는 소프트웨어 디자인 패턴 중 하나
 * - 세 가지 구성 요소로 나누어 개발을 진행 (역할 분담)
@@ -11,12 +11,12 @@ package org.example.chapter12;
 * 1. Model(모델)
 *       : 애플리케이션의 데이터와 비즈니스 로직을 담당
 *       - DB, 파일 시스템, 외부 서비스와의 통신을 통해 데이터를 저장하고 검색
-*       - 상태 변경에 대해 View와 Controller 에게 알릴 수 있는 메커니즘을 제공
+*       - 상태 변경에 대해 View와 Controller에게 알릴 수 있는 메커니즘을 제공
 *       >> View와 Controller의 세부 구현사항으로 부터 독립적
 *
 * 2. View(뷰)
 *       : 사용자에게 데이터를 표시하는 방법을 정의
-*       - Model의 정보를 표시, 사용자 액션을 Controller 에게 전달
+*       - Model의 정보를 표시, 사용자 액션을 Controller에게 전달
 *       - Model이 가진 정보를 사용자가 이해할 수 있는 형태로 변환
 *
 * 3. Controller(컨트롤러)
@@ -39,11 +39,11 @@ package org.example.chapter12;
 * == MVC 패턴의 작동 원리 ==
 * View >> Controller >> Model >> Controller >> View
 *
-* cf) SpringBoot: 자바 기반 웹 프레임워크
+* cf) Spring: 자바 기반 웹 프레임워크
 *       >> Spring Boot (Spring MVC)
 * */
 
-// == 학교 급식 시스템 == //
+// - 학교 급식 시스템 - //
 // Model(모델): 급식표(데이터) - 급식 메뉴가 적힌 종이
 // View(뷰): 칠판(화면) - 학생들이 확인하는 곳
 // Controller(컨트롤러): 영양사 선생님 - 급식표 내용을 업데이트하고, 칠판에 알려주는 역할
@@ -55,6 +55,7 @@ package org.example.chapter12;
 // 1. Model: 데이터를 저장하는 역할
 class LunchMenu {
     private String menu;
+
     public String getMenu() { return menu; }
     public void setMenu(String menu) { this.menu = menu; }
 }
@@ -63,18 +64,19 @@ class LunchMenu {
 class LunchView {
     public void displayMenu(String menu) {
         if (menu == null || menu.isBlank()) {
-        System.out.println("오늘 급식은 없습니다.");
-    } else {
-            System.out.println("오늘 급식메뉴는: " + menu);
+            System.out.println("오늘은 급식이 없습니다.");
+        } else {
+            System.out.println("오늘 급식 메뉴는: " + menu);
         }
+    }
 }
 
 // 3. Controller: Model과 View를 연결하는 역할
-class LunchContorller {
+class LunchController {
     private LunchMenu model;
     private LunchView view;
 
-    public LunchContorller(LunchMenu model, LunchView view) {
+    public LunchController(LunchMenu model, LunchView view) {
         this.model = model;
         this.view = view;
     }
@@ -90,7 +92,10 @@ class LunchContorller {
         view.displayMenu(menu);
     }
 
-}
+    public void studentRequestMenu() {
+        System.out.println("[학생 요청] 오늘 급식 뭐예요?");
+        updateView();
+    }
 }
 
 public class MVC {
@@ -99,12 +104,19 @@ public class MVC {
         LunchMenu menu = new LunchMenu();
         LunchView view = new LunchView();
 
-//        LunchContorller controller = new LunchContorller(menu, view);
-//
-//        controller.setLunchMenu("김밥, 떡볶이, 콜라");
-//        controller.updateView();
-//
-//        controller.setLunchMenu("김밥, 매운 떡볶이, 콜라");
-//        controller.updateView();
+        LunchController controller = new LunchController(menu, view);
+
+        controller.studentRequestMenu();
+
+        controller.setLunchMenu("김밥, 떡볶이, 콜라");
+//        controller.updateView(); // 오늘 급식 메뉴는: 김밥, 떡볶이, 콜라
+        controller.studentRequestMenu();
+
+        controller.setLunchMenu("김밥, 매운 떡볶이, 콜라");
+//        controller.updateView(); // 오늘 급식 메뉴는: 김밥, 매운 떡볶이, 콜라
+        controller.studentRequestMenu();
+
+        controller.setLunchMenu("");
+        controller.studentRequestMenu();
     }
 }

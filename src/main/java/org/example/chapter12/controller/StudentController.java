@@ -1,15 +1,15 @@
 package org.example.chapter12.controller;
 
-import org.example.chapter12.Student;
 import org.example.chapter12.dto.StudentRequestDto;
 import org.example.chapter12.dto.StudentResponseDto;
+import org.example.chapter12.model.Student;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentController {
     private final List<Student> studentList;
-    private  int nextId;
+    private int nextId;
 
     public StudentController(List<Student> studentList) {
         this.studentList = studentList;
@@ -19,10 +19,11 @@ public class StudentController {
     // 학생 추가(Create)
     public void addStudent(StudentRequestDto dto) {
         // 학생 추가 시 입력한 studentNumber의 학생이 존재하는 경우
-        // : 기능 x + 메세지 출력
+        // : 기능 X + 메시지 출력
         StudentResponseDto studentResponseDto = getStudentById(dto.getStudentNumber());
 
         if (studentResponseDto != null) {
+            // 입력받은 studentNumber의 학생이 존재 - 학생 추가 불가
             System.out.println("해당 학번의 학생이 이미 존재합니다.");
             return;
         }
@@ -62,13 +63,11 @@ public class StudentController {
             }
         }
 
-        return null; // 조회한 삭생이 없으 경우 (null 반환)
+        return null; // 조회한 학생이 없을 경우 (null 반환)
     }
 
     // 학생 수정
     public boolean updateStudent(StudentRequestDto dto) {
-        StudentResponseDto studentResponseDto = getStudentById(dto.getStudentNumber());
-
         for (Student student: studentList) {
             if (student.getStudentNumber().equals(dto.getStudentNumber())) {
                 student.setName(dto.getName());
@@ -76,6 +75,7 @@ public class StudentController {
                 return true;
             }
         }
+
         return false;
     }
 
@@ -87,7 +87,6 @@ public class StudentController {
                 return true;
             }
         }
-
         return false;
     }
 }

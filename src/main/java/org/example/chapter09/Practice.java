@@ -12,34 +12,33 @@ public class Practice {
 
         Scanner sc = new Scanner(System.in);
 
-        // 1. 사용자로부터 생년월일을 입력 받기 (형식은 YYYY-MM-DD)
+        // 1. 사용자로부터 생년월일을 입력 받기 (형식 YYYY-MM-DD)
         System.out.println("생년월일을 입력하세요. (YYYY-MM-DD)");
         String inputDate = sc.nextLine();
 
         // 2. 사용자의 입력을 LocalDate 타입으로 변환 (yyyy-MM-dd): formatter
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-
-        // LocalDate,parse(a, b)
+        // LocalDate.parse(a, b)
         // : a를 b의 형태로 재구성
         // cf) parse: 분석하다
-        LocalDate birthDate = LocalDate.parse(inputDate, formatter);
+        LocalDate birthDate = LocalDate.parse(inputDate, formatter); // 1997-03-14
 
         // 3. 현재 날짜 구하기
-        LocalDate today = LocalDate.now();
+        LocalDate today = LocalDate.now(); // 2025-07-09
 
         // 4. 올해의 생일 계산
         // .withYear(): 년도를 조작하는 메서드
         // .with~()
-        LocalDate nextBirthDay = birthDate.withYear(today.getYear());
+        LocalDate nextBirthDay = birthDate.withYear(today.getYear()); // 2025-03-14
 
         // 5. 생일이 이미 지났거나 당일인 경우 년도값을 내년으로 설정
         if (nextBirthDay.isBefore(today) || nextBirthDay.isEqual(today)) {
-            nextBirthDay = nextBirthDay.plusYears(1);
+            nextBirthDay = nextBirthDay.plusYears(1); // 2026-03-14
         }
 
         // 6. 남은 일수 계산
-        // ChronoUnit: java.time 패키지에서 날짜와 시간 간의 차이를 계산할 때 사용
+        // ChronoUnit.Days: java.time 패키지에서 날짜와 시간 간의 차이를 계산할 때 사용
         // .between(a, b): a와 b 사이의 날짜 | 시간 차이를 반환
         long daysUtilNextBirthday = ChronoUnit.DAYS.between(today, nextBirthDay);
 

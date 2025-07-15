@@ -1,6 +1,6 @@
 package org.example.chapter04;
 
-// == OOP (클래스 & 객체) == //
+// === OOP (클래스 & 객체) === //
 
 // 1. 클래스(Class)
 // : 객체를 만들기 위한 설계도(템플릿)
@@ -8,12 +8,12 @@ package org.example.chapter04;
 
 // 1) 클래스의 특징
 // - 실제 데이터를 저장하지 않음
-// - 메모리에도 저장 x
+// - 메모리에도 저장 X
 // - 단지 객체 생성을 위한 '개념적인 틀'
 
 // 2) 클래스 구조
 // class 키워드를 사용
-// class 클래스명 { 해당 클래스의 기능과 행동을 정의 }
+// class 클래스명 { 해당 클래스의 기능과 해동을 정의 }
 class ClassName {
     // cf) 클래스명: UpperCamelCase 사용
     //      >> Car, StudentInfo, BookLibrary 등
@@ -26,12 +26,10 @@ class ClassName {
 // >> 각 객체는 독립적인 상태와 행동을 가짐
 // >> 서로 다른 객체와의 상호작용 가능
 
-// cf) 객체 VS 인스턴스
+// cf) 객체 == 인스턴스
 // '인스턴스화'
 // : 클래스라는 템플릿을 기반으로 객체를 만드는 '과정'
-// > 이때, 만들어진 객체를 '인스턴스(Instance)'리고 부름
-
-
+// > 이때, 만들어진 객체를 '인스턴스(Instance)'라고 부름
 
 public class B_Object {
     public static void main(String[] args) {
@@ -40,14 +38,14 @@ public class B_Object {
             [접근제한자] class 클래스명 {
                 // 클래스가 가지는 속성과 행동 정의
                 - 속성(기능): 변수
-                - 행동(메서드): 함수
+                - 행동(메서드, method): 함수
             }
         */
 
         // cf) 접근제한자(접근제어자)
         // : 생략 가능
         // - 클래스의 가시성을 정의 (접근에 대한 권한을 부여)
-        // 클래스, 변수, 메서드의 접근 가능 범위를 결정
+        // - 클래스, 변수, 메서드의 접근 가능 범위를 결정
         // - 종류) public, private, protected, (default)
 
         class Car {
@@ -72,5 +70,5 @@ public class B_Object {
     }
 }
 
-// 클래스는 메모리에 올라가지 않는다
-// 객체는 클래스 인스턴스의 실체
+// 클래스는 메모리에 올라가나요? No
+// 객체는 무엇의 실체? 클래스의 인스턴스

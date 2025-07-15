@@ -10,7 +10,7 @@ public class G_Practice {
             단어 퀴즈 맞추기 게임
             : 동적 배열에 단어 5개를 삽입
 
-            무작위 수를 생성(난수)하여 단어 5개중에서 1가지를 선택
+            무작위 수를 생성(난수)하여 단어 5개 중에서 1가지를 선택
 
             사용자로부터 입력받은 값이 무작위로 선택된 단어와 일치하는 경우 게임 종료
             - 정답을 맞출 때까지 무한 반복
@@ -25,7 +25,6 @@ public class G_Practice {
         words.add("볼펜");
         words.add("핸드폰");
         words.add("키보드");
-
 
         // 2. 무작위 난수 생성 (0 ~ 4)
         // cf) Random 클래스(자바 내부 라이브러리 기능)
@@ -42,17 +41,17 @@ public class G_Practice {
 
         // 4) 사용자 입력 스캐너 생성
         Scanner sc = new Scanner(System.in);
-        String userInput; // 반복문 내에서 스캐너를 통해 값을 할당
+        String userInput; // 반복문 내에서 스캐너를 통해 값 할당
 
         // 5) 사용자 입력값과 무작위 단어 비교
         while (true) {
-            System.out.println("단어를 맞춰보세요");
+            System.out.println("단어를 맞춰보세요 :)");
             userInput = sc.nextLine();
 
             // 문자열 비교: A문자열.equals(B문자열)
             if (userInput.equals(selectedWord)) {
-                System.out.println("정답입니다.");
-                break; // 반복문 종료
+                System.out.println("정답입니다: " + selectedWord);
+                break; // 반복문 종료 키워드
             } else if (userInput.equals("종료")) {
                 System.out.println("종료합니다");
                 break;
@@ -63,18 +62,5 @@ public class G_Practice {
 
         sc.close();
         System.out.println("프로그램이 종료되었습니다.");
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

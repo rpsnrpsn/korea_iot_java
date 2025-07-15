@@ -1,14 +1,14 @@
 package org.example.chapter13;
 
 /*
- * === 제네릭 ===
- * : 다양한 데이터 타입을 처리할 수 있는 코드의 틀
- *
- * cf) 자바 표준 라이브러리도 제네릭 기반
- * - ArrayList<T>: 리스트 자료형
- * - HashMap<K, V>: 키-값 쌍 자료형
- * - Optional<T>: 값이 있을 수도 없을 수도 있는 객체 래퍼
- * */
+* === 제네릭 ===
+* : 다양한 데이터 타입을 처리할 수 있는 코드의 틀
+*
+* cf) 자바 표준 라이브러리도 제네릭 기반
+* - ArrayList<T>: 리스트 자료형
+* - HashMap<K, V>: 키-값 쌍 자료형
+* - Optional<T>: 값이 있을 수도 없을 수도 있는 객체 래퍼
+* */
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,3 +115,4 @@ public class B_Generic {
     }
     // >> 다만, 리스트에 값 추가는 적합하지 않음
 }
+

@@ -6,10 +6,10 @@ interface Flyable {
 
     int AVERAGE_SPEED = 100; // public static final 생략
 
-    void Fly(); // 추상 메서드 - public abstract (각 구현체에서 나는 행위를 재정의)
+    void fly(); // 추상 메서드 - public abstract (각 구현체에서 나는 행위를 재정의)
 
     // 디폴트 메서드 - 재정의 가능
-    default  void land() {
+    default void land() {
         System.out.println("착륙합니다.");
     }
 
@@ -21,8 +21,8 @@ interface Flyable {
 
 class 참새 implements Flyable {
     @Override
-    public void Fly() {
-        // 인터페이스의 필드 사용 가능
+    public void fly() {
+        // 인터페이스의 필드 사용 가능!
         System.out.println("참새의 속력은 " + AVERAGE_SPEED + "km의 평균 속도보다 느립니다.");
     }
 
@@ -34,37 +34,35 @@ class 참새 implements Flyable {
 
 class 독수리 implements Flyable {
     @Override
-    public void Fly() {
+    public void fly() {
         System.out.println("독수리의 속력은 " + AVERAGE_SPEED + "km의 평균 속도보다 빠릅니다.");
     }
 
     @Override
     public void land() {
-        System.out.println("슝");
+        System.out.println("슈우우우웅");
     }
 }
-
 
 public class D_Interface {
     public static void main(String[] args) {
         참새 bird1 = new 참새();
 
-        bird1.Fly();
-        bird1.land();
+        bird1.fly(); // 참새의 속력은 100km의 평균 속도보다 느립니다.
+        bird1.land(); // 사뿐
 
         독수리 bird2 = new 독수리();
 
-        bird2.Fly();
-        bird2.land();
+        bird2.fly(); // 독수리의 속력은 100km의 평균 속도보다 빠릅니다.
+        bird2.land(); // 슈우우우웅
 
-        System.out.println(Flyable.getWingCount());
+        System.out.println(Flyable.getWingCount()); // 2
 
         Flyable bird3 = new 참새();
         Flyable bird4 = new 독수리();
-        bird3.Fly();
-        bird4.Fly();
-
-
-
+        bird3.fly(); // 참새의 속력은 100km의 평균 속도보다 느립니다.
+        bird4.fly(); // 독수리의 속력은 100km의 평균 속도보다 빠릅니다.
+        bird3.land(); // 사뿐
+        bird4.land(); // 슈우우우웅
     }
 }

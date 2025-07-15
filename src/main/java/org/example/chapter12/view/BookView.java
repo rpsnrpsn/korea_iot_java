@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BookView {
-
     private final BookController controller;
     private final Scanner sc;
 
@@ -15,6 +14,7 @@ public class BookView {
         this.controller = controller;
         this.sc = sc;
     }
+
     public void showMenu() {
         int choice = 0;
 
@@ -40,9 +40,9 @@ public class BookView {
                     break;
                 case 4:
                     System.out.println("종료하겠습니다.");
-                    return;
+                    break;
                 default:
-                    System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+                    System.out.println("잘못된 입력입니다. 다시 선택해주세요.");
                     break;
             }
         }

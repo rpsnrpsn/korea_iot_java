@@ -1,12 +1,12 @@
 package org.example.chapter11;
 
 /*
-* == SOLID 원칙 ==
+* === SOLID 원칙 ===
 * SRP: 단일 책임 원칙 - 클래스는 하나의 책임만을 가짐
-* OCP: 개방 폐쇄 원칙 - 확장에 개방, 수정에 폐쇄
-* LSP: 리스코프 치환 원칙 - 자식 클래스는 부모 클래스를 대체 할 수 있다. (부모와 행위의 일관성)
-* ISP: 인터페이스 분리 원칙 - 자신이 사용하지 않는 인터페이스에 의존하지 x
-* DIP: 의존 역전 원칙 - 클래스 간의 결함을 낮추고, 추상화에 의존해야 함
+* OCP:개방 폐쇄 원칙 - 확장에 개방, 수정에 폐쇄
+* LSP: 리스코프 치환 원칙 - 자식 클래스는 부모 클래스를 대체 할 수 있음 (부모와 행위의 일관성)
+* ISP: 인터페이스 분리 원칙 - 자신이 사용하지 않는 인터페이스에 의존하지 X
+* DIP: 의존 역전 원칙 - 클래스 간의 결합을 낮추고, 추상화에 의존해야 함
 * */
 
 // == SOLID 원칙을 활용한 주문 관리 시스템 == //
@@ -21,12 +21,8 @@ class Order {
         this.amount = amount;
     }
 
-    public String getOrderId() {
-        return orderId;
-    }
-    public int getAmount() {
-        return amount;
-    }
+    public String getOrderId() { return orderId; }
+    public int getAmount() { return amount; }
 }
 
 // 2. OCP - 결제 프로세스를 추상화한 인터페이스 생성
@@ -84,11 +80,12 @@ public class C_OOP_Practice {
         PaymentProcessor samsungPayPaymentProcessor = new SamsungPayPaymentProcessor();
 
         GenerateReport generateReport = new PdfReportGenerator();
+
         OrderService orderService1 = new OrderService(creditCardPaymentProcessor, generateReport);
         OrderService orderService2 = new OrderService(samsungPayPaymentProcessor, generateReport);
 
         // 여러 개의 주문 객체 생성
-        Order order1 = new Order("1", 10000);
+        Order order1 = new Order("1", 18000);
         Order order2 = new Order("2", 28000);
         Order order3 = new Order("3", 13000);
         Order order4 = new Order("4", 34000);

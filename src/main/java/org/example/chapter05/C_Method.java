@@ -1,6 +1,6 @@
 package org.example.chapter05;
 
-// == 인자와 매개변수의 관계 == //
+// === 인자와 매개변수의 관계 ===
 // 1. 인자(argument, 아규먼트)
 // 2. 매개변수(parameter, 파라미터)
 
@@ -17,13 +17,12 @@ class MyMath {
 
     int multiply(int a, int b) {
         return a * b;
-
     }
 
     int divide(int a, int b) {
-        // 메서드 내부에서 return 키워드를 만나면 메서드 종료
+        // 메서드 내부에서 return 키워드를 만나면 메서드 종료!
         // >> 조건에 따라 반환값을 다르게 설정 가능
-        // >> 반환타입은 일치하거나 자동 형 변환이 가능할 것
+        // >> 반환타입은 일치하거나 자동 형 변환이 가능할 것!
 
         if (b == 0) {
             System.out.println("정수 0으로 나눌 수 없습니다.");
@@ -50,10 +49,11 @@ class MyMath {
 //        if (a > b) return a;
 //        else return b;
         int result;
+
         if (a > b) result = a;
         else result = b;
 
-        return result;
+        return  result;
     }
 
     int min(int a, int b) {
@@ -62,23 +62,23 @@ class MyMath {
 //        return a > b ? b : a;
         return a < b ? a : b;
     }
-
 }
 
 public class C_Method {
     public static void main(String[] args) {
-        // 클래스 타입 = new 클래스 생성자호출();
-        // - 클래스 생성자는 반드시 한개 이상 존재
-        // - 사용자 정의 생성자가 없는 경우 빈 생성자(인자x, 반환x)가 생략
+        // 클래스타입 객체명 = new 클래스생성자호출();
+        // - 클래스 생성자는 반드시 한 개 이상 존재!
+        // - 사용자 정의 생성자가 없는 경우 빈 생성자(인자X,반환X)가 생략
         MyMath myMath = new MyMath();
 
+        // ctrl + d (줄 복사)
         System.out.println(myMath.add(10, 20)); // 30
         System.out.println(myMath.subtract(10, 20)); // -10
         System.out.println(myMath.multiply(10, 20)); // 200
         System.out.println(myMath.divide(10, 20)); // 0: 자기 자신보다 큰 수로 나누면 '0' 반환
 
         System.out.println(myMath.divide(10, 0));
-        // Exception in thread "main" java.lang.ArithmeticException: / by zero
+        // ArithmeticException: / by zero
         // >> 자바에서는 수를 0으로 나누면 예외가 발생
 
         System.out.println(myMath.doubleDivide(10, 0.0)); // Infinity
@@ -89,6 +89,5 @@ public class C_Method {
 
         // cf) 인자는 실질적인 데이터
         //      매개변수는 해당 데이터를 메서드 블록 내에서 저장할 임시 변수 - 메서드 실행 시에만 유효
-
     }
 }

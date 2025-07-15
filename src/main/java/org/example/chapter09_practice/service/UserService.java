@@ -25,7 +25,7 @@ public interface UserService {
     void updateUserEmail(int id, String newEmail);
 
     // 5. 사용자 삭제
-    // 요청값: 사용자 특정값, 반환값: x
+    // 요청값: 사용자 특정값, 반환값: X
     void deleteUser(int id);
 
     // 6. 사용자 필터링(이름)

@@ -1,14 +1,14 @@
 package org.example.chapter05;
 
-// == (메서드) 오버로딩 == //
+// === (메서드) 오버로딩 === //
 // : overloading - 중복 정의
 // : 한 클래스 내에서 동일한 이름의 '메서드'를 여러 개 정의하는 것
 
-// cf) 변수는 같은 영역 내에서 동일한 이름의 재선언이 불가
+// cf) 변수는 같은 영역 내에서 동일한 이름의 재선언이 불가!
 
 // 1. 오버로딩의 성립 조건
 // : 메서드명은 동일
-// - 매개변수의 개수 또는 타입이 달라야 함
+// - 매개변수의 개수 또는 타입이 달라야 함!
 // - 반환타입은 오버로딩 성립에 영향이 없음
 
 // 2. 오버로딩의 장점
@@ -25,10 +25,10 @@ package org.example.chapter05;
 class Calc {
     // 오버로딩 성립조건: 메서드명 동일, 매개변수의 타입 || 개수 차이, 반환타입은 무관
 
-    // cf) 변수는 동일한 이름의 재정의 불가
+    // cf) 변수는 동일한 이름의 재정의 불가!
     int a;
-    // long a; - 같은 스코프 내에 동일한 이름 불가
-    { int a; } // - 다른 스코프 내에서는 동일한 이름 사용 가능
+    // long a; - 같은 스코프 내에 동일한 이름 불가!
+    { int a; } // - 다른 스코프에서는 동일한 이름 사용 가능!
 
     int add (int a, int b) {
         return a + b;
@@ -40,7 +40,7 @@ class Calc {
     int add (short a, short b) { return a + b; }
     double add (double a, double b) { return a + b; }
     double add (int x, double y) { return x + y; }
-    double add (double x, int y) { return x + y;}
+    double add (double x, int y) { return x + y; }
 
     // == 매개변수 개수 차이 == //
     int add(int a, int b, int c) { return a + b + c; }
@@ -50,10 +50,10 @@ public class F_Overloading {
     public static void main(String[] args) {
         Calc calc = new Calc();
 
-        System.out.println(calc.add(10, 20));
-        System.out.println(calc.add(10, 20.1));
-        System.out.println(calc.add(10.1, 20));
-        System.out.println(calc.add(10.3, 20.4));
-        System.out.println(calc.add(10, 20, 30));
+        System.out.println(calc.add(10, 20)); // 30
+        System.out.println(calc.add(10, 20.1)); // 30.1
+        System.out.println(calc.add(10.1, 20)); // 30.1
+        System.out.println(calc.add(10.3, 20.5)); // 30.8
+        System.out.println(calc.add(10, 20, 30)); // 60
     }
 }

@@ -3,7 +3,7 @@ package org.example.chapter04;
 // 클래스 변수 VS 인스턴스 변수
 
 // 1. 형태
-// - 클래스: static 키워드가 데이터 타입 앞에 명사
+// - 클래스: static 키워드가 데이터 타입 앞에 명시
 // - 인스턴스: 일반 변수 선언
 
 // 2. 선언 위치
@@ -19,14 +19,14 @@ package org.example.chapter04;
 
 class Example {
     int instanceValue;
-    static int classsValue;
+    static int classValue;
 }
 
 class Counter {
     static int count = 0; // 변수의 초기화처럼 필드를 생성 시 초기화 가능 - 주로 고정적인 static에 사용
 
     Counter() {
-        count++;
+        count++; // count += 1;
     }
 }
 

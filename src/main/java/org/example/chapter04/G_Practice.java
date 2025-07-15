@@ -1,6 +1,6 @@
 package org.example.chapter04;
 
-        /*
+/*
 	=== 문제 1. 클래스 생성 ===
 	아래의 요구사항에 따라 Person 클래스를 작성
 
@@ -19,33 +19,32 @@ package org.example.chapter04;
 
 	- population이라는 정적 변수(클래스 변수)를 추가하고, 생성된 Person 객체의 수를 저장
 	- 각 객체가 생성될 때마다 population 변수를 증가시키도록 생성자를 수정
-        */
+*/
 
-class Person{
+class Person {
     String name;
     int age;
     static int population;
 
-    Person () {
+    Person() {
         population++;
     }
 
-    Person (String name, int age) {
+    Person(String name, int age) {
         this.name = name;
         this.age = age;
         population++;
     }
 
-    void introduce () {
-        System.out.println("안녕하세요. 저는 " + name + "이고, 나이는 " + age + "살 입니다.");
+    void introduce() {
+        System.out.println("안녕하세요, 저는 " + name + "이고, 나이는 " + age + "살 입니다.");
     }
 }
-
 
 public class G_Practice {
     public static void main(String[] args) {
         Person p1 = new Person("홍길동", 25);
-        p1.introduce ();
+        p1.introduce(); // 안녕하세요, 저는 홍길동이고, 나이는 25살 입니다.
 
         System.out.println(Person.population);
 
@@ -55,6 +54,6 @@ public class G_Practice {
         new Person();
         new Person();
 
-        System.out.println(Person.population);
+        System.out.println(Person.population); // 6
     }
 }

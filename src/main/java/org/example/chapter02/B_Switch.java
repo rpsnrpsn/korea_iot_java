@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class B_Switch {
     public static void main(String[] args) {
-        // == switch 조건문 == //
+        // === switch 조건문 ===
         // : 특정 변수의 값에 따라 실행할 코드 블록의 범위를 결정
         // : 비교할 변수와 case 값을 비교하여 같은 값일 경우 해당 블록부터 끝까지 실행
         //      +) break 키워드에서 switch 문이 종료
@@ -25,17 +25,17 @@ public class B_Switch {
 
             >> full-through 상태
                 : case 영역 내에서 break 키워드 없이 끝까지 실행되는 경우
-         */
+        */
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Chapter를 선택하세요");
+        System.out.println("Chapter를 선택하세요 :)");
         int chapter = sc.nextInt();
 
         switch (chapter) {
             case 1:
                 System.out.println("자바 기본 문법");
-                break; // 해당 case의 실행이 끝나면 switch 문을 빠져나옴 (break 뒤에 문장 작성 x)
-            // System.out.println(); - 해당 내용은 출력 x
+                break; // 해당 case의 실행이 끝나면 switch 문을 빠져나옴! (break 뒤에 문장 작성 X)
+                // System.out.println("안녕"); - 해당 내용 출력 X
             case 2:
                 System.out.println("자바 제어문 - 조건문/반복문");
                 System.out.println("switch - case 학습 중입니다.");
@@ -49,7 +49,7 @@ public class B_Switch {
 
         sc.nextLine(); // 개행 문자(Enter) 처리
 
-        System.out.println("과일 이름을 입력해 주세요.");
+        System.out.println("과일의 이름을 입력해주세요.");
         String fruit = sc.nextLine();
 
         switch (fruit) {
@@ -68,11 +68,11 @@ public class B_Switch {
 
         sc.close();
 
-        // == if문 vs switch문 == //
+        // === if문 VS switch문 === //
         // 1) if문
-        // - 사용 대상: 범위 조건, boolean
-        // - 조건 개수: 복잡한 조건, 논리식 기능
-        // - 사용 예시: 정수, 나이, 범위 체크
+        // - 사용 대상: 범위 조건, 불리언
+        // - 조건 개수: 복잡한 조건, 논리식 가능
+        // - 사용 예시: 점수, 나이, 범위 체크
         // >> 조건이 다양하거나 논리식이 필요할 경우
         int score = 85;
         if (score >= 90) {
@@ -91,16 +91,13 @@ public class B_Switch {
 
         String grade = "B";
         switch (grade) {
-            case "A":
-            case "B":
+            case "A": case "B":
                 System.out.println("우수한 성적입니다.");
-                break;
-            case "C":
-            case "D":
+                break; // A와 B 등급이 같은 결과를 출력: case문을 연달아 사용 가능
+            case "C": case "D":
                 System.out.println("평균적인 성적입니다.");
             default:
                 System.out.println("조금 더 노력해봅시다.");
-
         }
     }
 }

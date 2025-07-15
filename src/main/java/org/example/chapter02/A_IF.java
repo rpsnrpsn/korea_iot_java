@@ -16,7 +16,7 @@ package org.example.chapter02;
 
 import java.util.Scanner;
 
-public class A_IF {
+public class A_If {
     public static void main(String[] args) {
         // 1. if문 (만약 ~라면) / else문 (그 밖에)
 

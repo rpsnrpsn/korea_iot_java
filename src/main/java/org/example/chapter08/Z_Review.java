@@ -11,7 +11,6 @@ package org.example.chapter08;
    - 추상 메서드: `move()` → "이동 수단에 따라 이동 방식이 다릅니다." 를 출력하도록 구현 필요
    - 일반 메서드: `info()` → "이동 관련 애플리케이션입니다." 를 출력
 
-
 2. `TaxiApp` 클래스는 `TransportApp`을 상속하고, `move()`를 오버라이딩하여 "택시로 이동합니다." 출력
 
 3. `BikeApp` 클래스는 `TransportApp`을 상속하고, `move()`를 오버라이딩하여 "자전거로 이동합니다." 출력
@@ -32,39 +31,6 @@ package org.example.chapter08;
 이동 관련 애플리케이션입니다.
 이동 수단은 친환경적입니다.
 */
-
-
-
-abstract class TransportApp {
-    abstract void move ();
-
-    void info () {
-        System.out.println("이동 관련 어플리케이션 입니다.");
-    }
-}
-
-class TaxiApp extends TransportApp {
-    @Override
-    void move() {
-        System.out.println("택시로 이동합니다.");
-    }
-}
-
-interface EcoFriendly {
-    default void ecoMessage() {
-        System.out.println("이동 수단은 친환경적입니다.");
-    }
-}
-
-class BikeApp extends TransportApp implements EcoFriendly {
-    @Override
-    void move() {
-        System.out.println("자전거로 이동합니다.");
-    }
-}
-
-
-
 public class Z_Review {
     public static void main(String[] args) {
 

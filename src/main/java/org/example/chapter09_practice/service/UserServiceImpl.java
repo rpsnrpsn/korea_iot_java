@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(int id) {
+    public User getUserById(int id) { // 6
         // 사용자 리스트를 순회하여 해당 id와 일치하는 사용자가 있는 경우 반환
         // +) 해당 id의 사용자가 없는 경우 UserNotFoundException 발생
 
@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
             }
         }
 
+        // 존재하지 않는 id 값을 요청한 것
         throw new UserNotFoundException("사용자 ID에 " + id + "값이 없습니다. (조회 실패)");
     }
 
@@ -60,7 +61,7 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(int id) {
         // 리스트 요소 제거
         // 리스트.remove(제거할요소);
-        // cf) 제거할 요소의 타입은 리스트의 요소 타입과 일치해야함
+        // cf) 제거 할 요소의 타입은 리스트의 요소 타입과 일치!
 
         User userToDelete = null; // 전체 리스트에서 특정 id와 일치하는 사용자 정보를 담을 변수 선언
 
@@ -74,8 +75,8 @@ public class UserServiceImpl implements UserService {
         }
 
         if (userToDelete == null) {
-            // 삭제하고자 하는 id의 사용자가 없음
-            throw new UserNotFoundException("사용자 ID에  + id + 값이 없습니다. (삭제 실패)");
+            // 삭제하고자 하는 id의 사용자가 없음!
+            throw new UserNotFoundException("사용자 ID에 " + id + "값이 없습니다. (삭제 실패)");
         }
 
         // 삭제 가능
