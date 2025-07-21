@@ -22,7 +22,7 @@ public class D_While {
         // cf) for 문으로 1부터 5까지 출력하는 문장을 작성 (초기화는 1)
         System.out.println("for문 출력");
         for (int num = 1; num <= 5; num++) { // (초기화; 조건; 증감)
-            System.out.print(num);
+            System.out.print (num);
         }
 
         // while 문으로 1부터 5까지 출력

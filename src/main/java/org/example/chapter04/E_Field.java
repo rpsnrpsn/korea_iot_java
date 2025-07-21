@@ -69,7 +69,9 @@ class CarClass {
     }
 }
 
-public class E_Field {
+public class
+
+E_Field {
     public static void main(String[] args) {
         // 1) 인스턴스 필드 사용 방법
         // 객체명.필드명

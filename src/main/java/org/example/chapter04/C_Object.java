@@ -33,7 +33,7 @@ class Car {
     // - 객체가 생성될 때 자동으로 호출
     // - 클래스 내부의 필드를 초기화하는 경우 주로 사용
     // cf) 반환타입을 가지지 않는 메서드*
-    Car(String modelName, int year) {
+    public Car(String modelName, int year) {
         // 필드명: model, year
         // 생성자의 매개변수: modelName, year
         model = modelName;
